@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    objectId: 10245,
+    objectId: 12720,
     apiData: {}
 }
 
@@ -12,17 +12,17 @@ export const dataSlice = createSlice({
         setData: (state, action) => {
             return {...state, apiData : action.payload}
         },
-        clearData: () => {
-            return initialState
-        },
-        inputId: (state, action) => {
-            return { ...state, objectId: action.payload }
-        },
         incrementId: (state) => {
             return { ...state, objectId: state.objectId + 1 }
         },
         decrementId: (state) => {
             return { ...state, objectId: state.objectId - 1 }
+        },
+        inputId: (state, action) => {
+            return { ...state, objectId: action.payload }
+        },
+        clearData: () => {
+            return initialState
         }
     }
 })

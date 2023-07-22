@@ -9,10 +9,11 @@ function App(props) {
 
   const renderImg = () => {
     if(data.apiData) {
-      return <img style={{'width': '100vw'}} src={data.apiData.primaryImage} alt={data.apiData.title} />
+      return <img style={{'width': '70vw'}} src={data.apiData.primaryImage} alt={data.apiData.title} />
     } else {
       return <p>image here</p>
     }
+    
   }
 
   useEffect(() => {
@@ -31,9 +32,13 @@ function App(props) {
       <input value={ data.objectId } onChange={(e) => {
         dispatch(inputId(Number(e.target.value)))
       }} />
-      <div>
+      <div className="artInfo">
         {data.objectId}
+        <br/>
         {renderImg()}
+        <br/>
+        "{data.apiData.title}" By {data.apiData.artistDisplayName} - ({data.apiData.artistDisplayBio})
+
       </div>
     </div>
   );
